@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MY APP</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){ 	
+  	//$.getJSON( "http://localhost:3000/getQuotes", function( data ) {
+	  /*var items = [];
+	  $.each( data, function( key, val ) {
+	    items.push( "<li id='" + key + "'>" + val + "</li>" );
+	  });
+	 
+	  $( "<ul/>", {
+	    "class": "my-new-list",
+	    html: items.join( "" )
+	  }).appendTo( ".quotesDiv" );*/
+	//});
+
+		$.getJSON("http://localhost:3000/getQuotes", function() {
+	  		alert("success");
+		})
+		.done(function() { alert('getJSON request succeeded!'); })
+		.fail(function() { alert('getJSON request failed! '); })
+		.always(function() { alert('getJSON request ended!'); });
+
+
+  });
+
+
+</script>
+</head>
+<body>
+fu
+
+
+  <div class="quotesDiv">
+  </div>
+
+<form action="/quotes" method="POST">
+  <input type="text" placeholder="name" name="name">
+  <input type="text" placeholder="quote" name="quote">
+  <button type="submit">Submit</button>
+</form>
+
+</body>
+</html>
