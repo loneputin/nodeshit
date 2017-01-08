@@ -8,8 +8,7 @@ var db; //database connection
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', function (req, res) {
-    res.send("{name: 'sam', quote: 'hey there sonny.'}") ;
-  //res.sendFile(__dirname+'/index.html')
+  res.sendFile(__dirname+'/index.html')
   // Note: __dirname is directory that contains the JavaScript source code. Try logging it and see what you get!
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.	
 });
@@ -25,23 +24,24 @@ app.get('/getQuotes', function (req,res) {
 });
 
 
-// app.post('/quotes', (req, res) => {
-//   db.collection('quotes').save(req.body, (err, result) => {
-//     if (err) return console.log(err);
+app.post('/quotes', (req, res) => {
+  db.collection('quotes').save(req.body, (err, result) => {
+    if (err) return console.log(err);
 
-//     console.log('saved to database');
-//     res.redirect('/');
-//   });
-// });
+    console.log('saved to database');
+    res.redirect('/');
+  });
+});
 
 
 //Connect to database first! then start the server.
-//MongoClient.connect('mongodb://sam:Example1!@ds157258.mlab.com:57258/dog-walks', function (err, database) {
-//  if (err) return console.log(err)
-//  db = database
-var port = process.env.PORT || 8000
+MongoClient.connect('mongodb://sam:Example1!@ds157258.mlab.com:57258/dog-walks', function (err, database) {
+  if (err) return console.log(err)
 
-app.listen(port, function() {
-    console.log("App is running on port " + port);
+  db = database
+  var port = process.env.PORT || 8000
+  app.listen(port, function() {
+      console.log("App is running on port " + port);
+  });
+
 });
-//});
