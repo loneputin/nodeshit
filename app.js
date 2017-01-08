@@ -41,7 +41,7 @@ app.get('/getQuotes', function (req,res) {
 //  db = database
 var port = process.env.PORT || 8000
 
-server.listen(port, function() {
+app.listen(port, function() {
     console.log("App is running on port " + port);
 });
 //});
