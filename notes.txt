@@ -1,0 +1,19 @@
+random project 
+
+Locations
+
+photos
+
+Users
+
+Images
+
+Comments
+
+
+SETUP!!
+ npm init
+ npm install express --save
+ npm install nodemon --save-dev
+ npm install body-parser --save
+ npm install mongodb --save
