@@ -8,7 +8,8 @@ var db; //database connection
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.get('/', function (req, res) {
-  res.sendFile(__dirname+'/index.html')
+    res.send("{name: 'sam', quote: 'hey there sonny.'}") ;
+  //res.sendFile(__dirname+'/index.html')
   // Note: __dirname is directory that contains the JavaScript source code. Try logging it and see what you get!
   // Mine was '/Users/zellwk/Projects/demo-repos/crud-express-mongo' for this app.	
 });
