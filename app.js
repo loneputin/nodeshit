@@ -39,7 +39,9 @@ app.get('/getQuotes', function (req,res) {
 //MongoClient.connect('mongodb://sam:Example1!@ds157258.mlab.com:57258/dog-walks', function (err, database) {
 //  if (err) return console.log(err)
 //  db = database
-  app.listen(3000, function (){
-    console.log('listening on 3000')
-  });
+var port = process.env.PORT || 8000
+
+server.listen(port, function() {
+    console.log("App is running on port " + port);
+});
 //});
