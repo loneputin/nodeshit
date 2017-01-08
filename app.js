@@ -18,9 +18,11 @@ app.get('/getQuotes', function (req,res) {
   //  the content of the response.
  res.contentType('application/json');
 
+ var cursor = db.quotes.find().pretty();
+
 //dont forget to stringify when sending an json object.
 
-	res.send("{name: 'sam', quote: 'hey there sonny.'}") ;
+	res.send(cursor) ;
 });
 
 
