@@ -18,12 +18,23 @@ app.get('/getQuotes', function (req,res) {
   //  the content of the response.
  res.contentType('application/json');
 
- var cursor = db.quotes.find().pretty();
-
 //dont forget to stringify when sending an json object.
 
-	res.send(cursor) ;
+var findDocuments = function(db, callback) {
+  // Get the documents collection
+  var collection = db.collection('documents');
+  // Find some documents
+  collection.find({'a': 3}).toArray(function(err, docs) {
+    assert.equal(err, null);
+    console.log("Found the following records");
+    console.log(docs);
+    callback(docs);
+  });      
+}
+
+	res.send(JSON.stringify(findDocuments));
 });
+
 
 
 app.post('/quotes', (req, res) => {
